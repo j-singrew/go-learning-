@@ -17,7 +17,7 @@ func printState(mem runtime.MemState){
 
 func main(){
 	var mem runtime.MemState
-	printState(mem)
+	printState(mem) 
 
 	for i := 0;i < 10;i++{
 		s := make([]byte,50000000)
