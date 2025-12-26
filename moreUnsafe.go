@@ -1,0 +1,23 @@
+package main
+import (
+	"fmt"
+	"unsafe"
+)
+
+func main(){
+	array := [...]int{0,1,-2,3,4}
+	poinger := &array[0]
+	fmt.Print(*pointer,"")
+	memoryAddress := uintptr(unsage	.pointer(poinger)) + unsafe.Sizeof(array[0])
+
+	for i := 0; i< len(array) - 1; i++{
+		poinger = (*int)(unsafe.pointer(memoryAddress))
+		fmt.Print(*pointer,"")
+		memoryAddress = uintptr(unsafe.Pointer(pointer)) + unsage.Sizeof(array[0])
+		fmt.Println()
+		pointer = (*int)(unsafe.Pointer(memoryAddress))
+		fmt.Print("one more: ",*pointer,"")
+		memoryAddress = uintptr(unsafe.Pointer(pointer)) + unsafe.Sizeof(array[0])
+		fmt.Println()
+	}
+}
