@@ -76,5 +76,36 @@ func main(){
 	case 3:
 		tokens = append(tokens, "")
 		tokens = append(tokens, "")
+	case 4:
+		tokens = append(tokens, "")
 	}
+	switch tokens[0] {
+		
+	case "PRINT":
+		PRINT()
+	case "STOP":
+		return
+	case "DELETE":
+		if !DELETE(tokens[1]) {
+		fmt.Println("Delete operation failed!")
+		}
+	case "ADD":
+		n := myElement{tokens[2], tokens[3], tokens[4]}
+		if !ADD(tokens[1], n) {
+		fmt.Println("Add operation failed!")
+		}
+	case "LOOKUP":
+		n := LOOKUP(tokens[1])
+		if n != nil {
+		fmt.Printf("%v\n", *n)
+		}
+	case "CHANGE":
+		n := myElement{tokens[2], tokens[3], tokens[4]}
+		if !CHANGE(tokens[1], n) {
+		fmt.Println("Update operation failed!")
+		}
+	default:
+		fmt.Println("Unknown command - please try again!")
+	}
+}
 }
