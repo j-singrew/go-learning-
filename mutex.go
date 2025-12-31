@@ -10,7 +10,7 @@ import (
 )
 
 
-var {
+var{
 	m sync.Mutex
 	v1 int
 }
