@@ -71,4 +71,16 @@ func main(){
 		fmt.Println(err)
 		return
 	}
+
+	go create(nJobs)
+	finished :=make(chan interface())
+	go func(){
+		for d := range data {
+		fmt.Printf("Client ID: %d\tint: ", d.job.id)
+		fmt.Printf("%dtsquare: %d\n", d.job.integer, d.square)
+		}
+		finished <- true
+	}()
+	make(nWorkers)
+	fmt.Printf(": %v\n", <-finished)
 }
